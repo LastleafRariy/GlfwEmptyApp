@@ -46,7 +46,7 @@
 
 并通过CMake官网独立安装CMake。
 
-**通过Code**打开`rootFolder`
+**通过Code**打开`根目录`
 
 
 
@@ -61,6 +61,12 @@
 如果没有显示出编译器，请点击**扫描工具包**。
 
 然后选择`Clang 10.0.0(MSVC CLI) with Visual Studio Community 2019 Release`(版本可能会有出入)。
+
+如果选择`x86`版本，会显示
+    
+    lld-link: error: undefined symbol: ...
+
+因为该项目使用x64版本的第三方库，请正确选择编译器。
 
 选择工具包成功后，会在下面状态栏中显示
 
@@ -110,7 +116,7 @@ Vscode会开始生成CMake缓存，如果生成成功，会在**输出**窗口�
 ## 生成CMake缓存
 可以通过保存**CMakeLists.txt**快捷生成缓存。
 
-还可以通过右键**CMakeLists.txt**，选择**为glfwApp生成缓存**。但是无法先清理缓存，所以我推荐使用Vscode。使用Vscode还有一个好处就是启动速度快，而且默认打开上一次关闭的文件夹。
+还可以通过右键**CMakeLists.txt**，选择**为glfwApp生成缓存**。
 
 ## 如何调试项目
 在上方找到**选择启动项**，打开下拉菜单，选择`glfwApp(publish/glfwApp.exe`。
@@ -145,7 +151,7 @@ vs2019会根据`CMakeSettings.json`生成`x64-Clang-Release`配置。
 说明项目编译成功！
 
 ## 运行程序
-编译完成后，找到`rootFolder/build/publish/glfwApp.exe`,双击运行，你将会看到一个无聊的绿色窗口。
+编译完成后，找到`rootFolder/build/publish/glfwApp.exe`,双击运行，你将会看到一个无聊的黑色窗口。
 ![glfwApp](docs/glfwApp.png)
 
 # 项目使用方式
@@ -174,7 +180,7 @@ CMake会添加`rootFolder/src`文件夹及其所有子目录的源文件。
 ## 头文件(.h/.hpp)
 请将头文件添加到`rootFolder/src`文件夹，或者子目录，不管你将文件放在哪里，都可以直接`#include "Filename.h"`,前提是头文件不能重名。
 
-# 协议 - BSD 3-Clause
+# 协议 - MIT
 
 ## 联系方式
 
